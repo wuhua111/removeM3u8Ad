@@ -87,9 +87,9 @@
             }
         };
         async function process_fetch_response(response) {
-            const responseClone = response.clone();
-            let result = await responseClone.text();
             try {
+                const responseClone = response.clone();
+                let result = await responseClone.text();
                 const tmp = config_info.process_method(result);
                 if (tmp) return new Response(tmp, response);
             } catch (error) {
