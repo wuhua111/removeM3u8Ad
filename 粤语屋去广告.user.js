@@ -27,9 +27,6 @@
     const page_type = get_page_type();
     const origin_console = console;
     const log = origin_console.log;
-    console.log = function () {
-        return;
-    };
     if (page_type === 'unknown') {
         log('unknown page type');
         return;
@@ -198,7 +195,7 @@
                                 if (processed_lines[processed_lines.length - 1] == '#EXT-X-DISCONTINUITY') {
                                     processed_lines.pop();
                                 }
-                                console.log(`删除${line}`);
+                                log(`删除${line}`);
                                 continue;
                             } else {
                                 index++;
