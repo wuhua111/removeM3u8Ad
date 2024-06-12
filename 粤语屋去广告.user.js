@@ -9,6 +9,7 @@
 // @grant        unsafeWindow
 // @license      MIT
 // @include      https://m3u8.yueyuwu.cc/player/*
+// @include      https://play.yueyuwu.cc/*
 // @include      https://xbyy.app/player/*
 // @include      https://kandaju.net/js/player/*
 // @include      https://ffzyplayer.com/*
@@ -115,7 +116,7 @@
     }
 
     function get_page_type() {
-        if (href.includes('m3u8.yueyuwu.cc'))
+        if (href.includes('yueyuwu.cc'))
             return 'yyw';
         else if (href.includes('xbyy.app'))
             return 'xbyy';
@@ -139,7 +140,7 @@
                 let is_ad_line = false;
                 for (let line of lines) {
                     if (line.startsWith('#EXT-X-MAP')) {
-                        is_ad_line = line.search('/ad/') != -1;
+                        is_ad_line = line.includes('/ad/');
                     }
                     is_ad_line && log(`删除${line}`);
                     !is_ad_line && line && processed_lines.push(line);
