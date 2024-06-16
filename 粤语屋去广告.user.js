@@ -2,9 +2,9 @@
 // @name         粤语屋 小宝影院 看剧吧 剧集屋 爱看港剧网 优酷去视频内嵌广告
 // @name:zh-TW   粤语屋 小宝影院 看剧吧 剧集屋 爱看港剧网 优酷去视频内嵌广告
 // @namespace    https://bbs.tampermonkey.net.cn/
-// @version      4.0.0
-// @description:zh-TW 粤语屋 小宝影院 看剧吧 剧集屋 爱看港剧网 优酷去视频内嵌广告1
-// @description 粤语屋 小宝影院 看剧吧 剧集屋 爱看港剧网 优酷去视频内嵌广告2
+// @version      4.0.1
+// @description:zh-TW 规则可能因为网站的改变而失效，也有可能是还没收录的规则，失效请留言，我会尽快修复！
+// @description 规则可能因为网站的改变而失效，也有可能是还没收录的规则，失效请留言，我会尽快修复！
 // @author       hua
 // @grant        unsafeWindow
 // @license      MIT
