@@ -56,7 +56,7 @@
         },
         "youku": {
             'm3u8_file_flag': /\.m3u8/,
-            'process_method': process_api.youku
+            'process_method': process_api.youku1
         }
     };
     let config_info = config_infos[page_type];
@@ -148,6 +148,26 @@
                 const last_index = processed_lines.length - 1;
                 if (processed_lines[last_index].startsWith('#EXT-X-DISCONTINUITY'))
                     processed_lines[last_index] = processed_lines[last_index].replace('#EXT-X-DISCONTINUITY', '#EXT-X-ENDLIST');
+                return processed_lines.join('\n');
+            },
+            youku1: function (file) {
+                // https://v.youku.com/v_show/id_XNTg3NzczODQ5Mg==.html?spm=a2hja.14919748_WEBTV_JINGXUAN.drawer8.d_zj1_3&s=ccaa921b13aa44fb92d1&scm=20140719.rcmd.20494.show_ccaa921b13aa44fb92d1&s=ccaa921b13aa44fb92d1
+                let lines = file.split('\n');
+                let processed_lines = [];
+                for (let line of lines) {
+                    if (line.startsWith('https')) {
+                        if (line.includes('/ad/')) {
+                            processed_lines.pop();
+                            processed_lines.pop();
+                            if (processed_lines[processed_lines.length - 1] == '#EXT-X-DISCONTINUITY') {
+                                processed_lines.pop();
+                            }
+                            log('删除', line);
+                            continue;
+                        }
+                    }
+                    processed_lines.push(line);
+                }
                 return processed_lines.join('\n');
             },
             xbyy: function (file) {
